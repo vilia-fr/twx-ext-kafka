@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><Entities>
+  <ExtensionPackages>
+    <ExtensionPackage name="MSK_Extension" description="Amazon Managed Streaming for Apache Kafka extension package" vendor="vilia.fr" packageVersion="1.0.14" minimumThingWorxVersion="9.3.0">
+      <JarResources>
+        <FileResource type="JAR" file="MSK_Extension.jar"/>
+      </JarResources>
+    </ExtensionPackage>
+  </ExtensionPackages>
+  <ThingPackages>
+    <ThingPackage name="ConsumerThing" description="Kafka Consumer" className="fr.vilia.twx.kafka.ConsumerThing" aspect.isCreatable="true"/>
+    <ThingPackage name="ProducerThing" description="Kafka Producer" className="fr.vilia.twx.kafka.ProducerThing" aspect.isCreatable="true"/>
+  </ThingPackages>
+  <ThingTemplates>
+    <ThingTemplate name="ConsumerThing" description="Kafka Consumer" thingPackage="ConsumerThing"/>
+    <ThingTemplate name="ProducerThing" description="Kafka Producer" thingPackage="ProducerThing"/>
+  </ThingTemplates>
+  <DataShapes>
+    <DataShape name="KafkaMessage">
+      <FieldDefinitions>
+        <FieldDefinition aspect.isPrimaryKey="true" baseType="STRING" name="key" ordinal="0"/>
+        <FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" name="value" ordinal="1"/>
+        <FieldDefinition aspect.isPrimaryKey="false" baseType="STRING" name="topic" ordinal="2"/>
+        <FieldDefinition aspect.isPrimaryKey="false" baseType="NUMBER" name="offset" ordinal="3"/>
+      </FieldDefinitions>
+    </DataShape>
+  </DataShapes>
+</Entities>
